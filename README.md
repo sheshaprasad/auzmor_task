@@ -24,7 +24,7 @@ samples, guidance on mobile development, and a full API reference.
 
 1. ** To Clone the repository:**
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/sheshaprasad/auzmor_task.git
 
 After cloning the source code navigate to project directory and run the below command
 cd <project_directory>
