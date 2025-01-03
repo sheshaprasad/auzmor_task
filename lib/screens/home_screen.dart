@@ -21,17 +21,24 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   /// Repo List that holds the data for the listview
+  List<TrainingData> carouselTrainingDataListRepo = [];
+
+  /// Repo List that holds the data for the listview
   List<TrainingData> trainingDataListRepo = [];
+
   /// Display list which will contain the data from Repo list based on query (i.e filter)
   List<TrainingData> trainingDataList = [];
+
   /// UI Notifier for list view update
   ValueNotifier<bool> notifyList = ValueNotifier(false);
+
   /// Carousel Controller
   CarouselController carouselController = CarouselController();
 
 
   ///Loading Training Data to Repo [trainingDataListRepo] and cloning it to Display list [trainingDataList]
   getData(){
+    carouselTrainingDataListRepo = generateRandomTrainingData(numData: 5);
     trainingDataListRepo = generateRandomTrainingData(numData: Random().nextInt(20));
     trainingDataList.addAll(trainingDataListRepo);
   }
@@ -179,7 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         aspectRatio: 3,
                                         enlargeCenterPage: true,
                                       ),
-                                      items: trainingDataList.map((trainingData) => TrainingImageTile(trainingData)).toList(),
+                                      items: carouselTrainingDataListRepo.map((trainingData) => TrainingImageTile(trainingData)).toList(),
                                     ),
                                   ),
                                   InkWell(
